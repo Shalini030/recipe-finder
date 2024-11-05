@@ -1,0 +1,225 @@
+/* Reset and basic styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #b56e38, #9f23be);
+    color: #333;
+    
+}
+
+/* Header Styling */
+header {
+    text-align: left;
+    width: 100%;
+    padding: 1rem;
+    color: #fff;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transform: translateX(-100%); /* Start position off-screen */
+    opacity: 0;
+    animation: slideInLeft 3s ease forwards;
+
+}
+
+p {
+    font-size: 1.2rem;
+    color: #ffeed6;
+    margin-top: 0.5rem;
+    text-align: center;
+    transform: translateX(-100%); /* Start position off-screen */
+    opacity: 0;
+    animation: slideInLeft 3s ease forwards;
+}
+
+/* Main content styling */
+main {
+    margin-right: 40px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-height: 300px;
+    max-width: 600px;
+    background: #faf9f9cc; /* Slightly transparent white */
+    border-radius: 20px;
+    border-color: #070c0f;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    overflow: auto;
+    transform: scale(0.1); /* Start smaller */
+    opacity: 1;
+    animation: bounceIn 3s ease forwards;
+
+    
+}
+
+
+.top-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient(to right, #b56e38, #9f23be);
+}
+
+
+
+/* Search section */
+.search-section, .random-section {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+   
+    
+}
+.logo {
+    display: block;
+    margin: 0 auto; /* Center the logo and add margin below */
+    width: 180px; /* Set a width for the logo */
+    height: auto; 
+    margin-bottom: 20px;/* Keep aspect ratio */
+}
+
+
+input[type="text"] {
+    width: 70%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #070505;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #090705;
+}
+
+/* Button Styling */
+button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    border-color: #070c0f;
+
+    cursor: pointer;
+    color: #fff;
+    background: #ff5e62;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: #fb1470ef;
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 10px rgba(255, 94, 98, 0.3);
+}
+
+/* Recipe display styling */
+.recipe-display {
+    margin-top: 20px;
+}
+
+.recipe-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #ffeed6;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+    display: block;
+    gap: 20px;
+    align-items: flex-start;
+    transition: transform 0.4s, box-shadow 0.3s ease;
+    animation: float 3s ease-in-out infinite; 
+}
+
+.recipe-card:hover {
+    transform: rotateY(10deg) rotateX(5deg) scale(1.03);;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+
+}
+.recipe-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.recipe-card h2 {
+    font-size: 1.8rem;
+    color: #ff5e62;
+    margin-bottom: 5px;
+}
+
+.recipe-card p {
+    font-size: 1rem;
+    color: #666;
+    margin: 5px 0;
+}
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+@keyframes slideInLeft {
+    0% { 
+        transform: translateX(-100%); 
+        opacity: 0; 
+    }
+    100% { 
+        transform: translateX(0); 
+        opacity: 1; 
+    }
+}
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .logo{
+        width: 240px;
+    }
+    main {
+        padding: 20px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    
+    input[type="text"], button {
+        width: 100%;
+    }
+
+    input[type="text"] {
+        margin-bottom: 10px;
+    }
+}
